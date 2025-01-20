@@ -1,191 +1,280 @@
-// let slider = document.querySelector('.testimonial__carousel'),
-//   sliderList = slider.querySelector('.carousel__list'),
-//   sliderTrack = slider.querySelector('.carousel__track'),
-//   slides = slider.querySelectorAll('.carousel__track--item'),
-//   arrows = slider.querySelector('.testimonial__content--arrows'),
-//   prev = arrows.children[0],
-//   next = arrows.children[1],
-//   slideWidth = slides[0].offsetWidth,
-//   slideIndex = 0,
-//   posInit = 0,
-//   posX1 = 0,
-//   posX2 = 0,
-//   posY1 = 0,
-//   posY2 = 0,
-//   posFinal = 0,
-//   isSwipe = false,
-//   isScroll = false,
-//   allowSwipe = true,
-//   transition = true,
-//   nextTrf = 0,
-//   prevTrf = 0,
-//   lastTrf = --slides.length * slideWidth,
-//   posThreshold = slides[0].offsetWidth * 0.35,
-//   trfRegExp = /([-0-9.]+(?=px))/,
-//   swipeStartTime,
-//   swipeEndTime,
-//   getEvent = function() {
-//     return (event.type.search('touch') !== -1) ? event.touches[0] : event;
-//   },
-//   slide = function() {
-//     if (transition) {
-//       sliderTrack.style.transition = 'transform .5s';
-//     }
-//     sliderTrack.style.transform = `translate3d(-${slideIndex * slideWidth}px, 0px, 0px)`;
-
-//     prev.classList.toggle('disabled', slideIndex === 0);
-//     next.classList.toggle('disabled', slideIndex === --slides.length);
-//   },
-//   swipeStart = function() {
-//     let evt = getEvent();
-
-//     if (allowSwipe) {
-
-//       swipeStartTime = Date.now();
-      
-//       transition = true;
-
-//       nextTrf = (slideIndex + 1) * -slideWidth;
-//       prevTrf = (slideIndex - 1) * -slideWidth;
-
-//       posInit = posX1 = evt.clientX;
-//       posY1 = evt.clientY;
-
-//       sliderTrack.style.transition = '';
-
-//       document.addEventListener('touchmove', swipeAction);
-//       document.addEventListener('mousemove', swipeAction);
-//       document.addEventListener('touchend', swipeEnd);
-//       document.addEventListener('mouseup', swipeEnd);
-
-//       sliderList.classList.remove('grab');
-//       sliderList.classList.add('grabbing');
-//     }
-//   },
-//   swipeAction = function() {
-
-//     let evt = getEvent(),
-//       style = sliderTrack.style.transform,
-//       transform = +style.match(trfRegExp)[0];
-
-//     posX2 = posX1 - evt.clientX;
-//     posX1 = evt.clientX;
-
-//     posY2 = posY1 - evt.clientY;
-//     posY1 = evt.clientY;
-
-//     if (!isSwipe && !isScroll) {
-//       let posY = Math.abs(posY2);
-//       if (posY > 7 || posX2 === 0) {
-//         isScroll = true;
-//         allowSwipe = false;
-//       } else if (posY < 7) {
-//         isSwipe = true;
-//       }
-//     }
-
-//     if (isSwipe) {
-//       if (slideIndex === 0) {
-//         if (posInit < posX1) {
-//           setTransform(transform, 0);
-//           return;
-//         } else {
-//           allowSwipe = true;
-//         }
-//       }
-
-//       // запрет ухода вправо на последнем слайде
-//       if (slideIndex === --slides.length) {
-//         if (posInit > posX1) {
-//           setTransform(transform, lastTrf);
-//           return;
-//         } else {
-//           allowSwipe = true;
-//         }
-//       }
-
-//       if (posInit > posX1 && transform < nextTrf || posInit < posX1 && transform > prevTrf) {
-//         reachEdge();
-//         return;
-//       }
-
-//       sliderTrack.style.transform = `translate3d(${transform - posX2}px, 0px, 0px)`;
-//     }
-
-//   },
-//   swipeEnd = function() {
-//     posFinal = posInit - posX1;
-
-//     isScroll = false;
-//     isSwipe = false;
-
-//     document.removeEventListener('touchmove', swipeAction);
-//     document.removeEventListener('mousemove', swipeAction);
-//     document.removeEventListener('touchend', swipeEnd);
-//     document.removeEventListener('mouseup', swipeEnd);
-
-//     sliderList.classList.add('grab');
-//     sliderList.classList.remove('grabbing');
-
-//     if (allowSwipe) {
-//       swipeEndTime = Date.now();
-//       if (Math.abs(posFinal) > posThreshold || swipeEndTime - swipeStartTime < 300) {
-//         if (posInit < posX1) {
-//           slideIndex--;
-//         } else if (posInit > posX1) {
-//           slideIndex++;
-//         }
-//       }
-
-//       if (posInit !== posX1) {
-//         allowSwipe = false;
-//         slide();
-//       } else {
-//         allowSwipe = true;
-//       }
-
-//     } else {
-//       allowSwipe = true;
-//     }
-
-//   },
-//   setTransform = function(transform, comapreTransform) {
-//     if (transform >= comapreTransform) {
-//       if (transform > comapreTransform) {
-//         sliderTrack.style.transform = `translate3d(${comapreTransform}px, 0px, 0px)`;
-//       }
-//     }
-//     allowSwipe = false;
-//   },
-//   reachEdge = function() {
-//     transition = false;
-//     swipeEnd();
-//     allowSwipe = true;
-//   };
-
-// sliderTrack.style.transform = 'translate3d(0px, 0px, 0px)';
-// sliderList.classList.add('grab');
-
-// sliderTrack.addEventListener('transitionend', () => allowSwipe = true);
-// slider.addEventListener('touchstart', swipeStart);
-// slider.addEventListener('mousedown', swipeStart);
-
-// arrows.addEventListener('click', function() {
-//   let target = event.target;
-
-//   if (target.classList.contains('next__slide')) {
-//     slideIndex++;
-//   } else if (target.classList.contains('prev__slide')) {
-//     slideIndex--;
-//   } else {
-//     return;
-//   }
-
-//   slide();
-// });
-
-
 $('.sign__number').mask('+7 (999) 999-99-99')
 $('.callback__number').mask('+7 (999) 999-99-99')
 
+const navLinks = document.querySelectorAll('a[href*="#"]')
+const signModal = document.querySelector('.sign__button')
+const signCoverModal = document.querySelector('.cover__button--sign')
+const priceModalCat = document.querySelector('#price__open--cat')
+const priceModalDog = document.querySelector('#price__open--dog')
+const priceModalHorse = document.querySelector('#price__open--horse')
+const petModal = document.querySelector('.price__item--button')
+const backgroundModal = document.querySelector('.container')
 
+
+for (let anchor of navLinks) {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault()
+    
+    const blockID = anchor.getAttribute('href').substr(1)
+    
+    document.getElementById(blockID).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+  })
+}
+
+const openSignWindow = ( event ) => {
+  let newWindow = '';
+  switch(true) {
+    case event.target.className === 'sign__button' || event.target.className === 'cover__button--sign':
+      console.log(event)
+      backgroundModal.style.cssText += `
+        z-index: 3;
+        display: block;
+      `;
+      newWindow += `
+        <biv class="sign__window">
+          <div class="sign__window--block">
+            <div class="sign__window--close">
+              <div class="sign__close--first sign__close"></div>
+              <div class="sign__close--second sign__close"></div>
+            </div>
+            <div class="sign__window--content">
+              <div class="sign__window--title">
+                <h1 class="sign__window--title--first">Запишитесь на процедуры</h1>
+                <h2 class="sign__window--title--second">Заполните форму и запишитесь</h2>
+              </div>
+              <form action="" class="sign__window--form">
+                <div class="sign__window--form--line">
+                  <input type="text" class="sign__window--name" placeholder="Ваше Имя">
+                  <input type="tel" class="sign__window--number" placeholder="+7 (000) 000-00-00">
+                  <input type="email" class="sign__window--email" placeholder="E-mail">
+                </div>
+                <p class="sign__window--radio">Выберите питомца</p>
+                <div class="sign__window--form--radio">
+                  <div class="radio__window--list">
+                    <input type="radio" class="radio__window--cat">
+                    <p class="radio__window--cat--description radio__window--description">Для кошака</p>
+                  </div>
+                  <div class="radio__window--list">
+                    <input type="radio" class="radio__window--dog">
+                    <p class="radio__window--dog--description radio__window--description">Для dog</p>
+                  </div>
+                  <div class="radio__window--list">
+                    <input type="radio" class="radio__window--horse">
+                    <p class="radio__window--horse--description radio__window--description">Для коня</p>
+                  </div>
+                </div>
+                <button class="sign__send sign__window--send"></button>
+                <p class="send__window--text">Оставляя заявку, вы соглашаетесь на обработку персональных данных</p>
+              </form>
+            </div>
+          </div>
+        </biv>
+      `;
+      backgroundModal.innerHTML = newWindow
+      $('.sign__window--number').mask('+7 (999) 999-99-99')
+  }
+}
+
+// const openCatWindow = ( event ) => {
+//   let newWindow = ``;
+//   switch(true) {
+//     case event.target.id === 'price__open--cat':
+//       newWindow += `
+//         <div class="pet">
+//           <div class="pet__background">
+//             <div class="pet__block">
+//               <div class="pet__content">
+//                 <div class="pet__title"></div>
+//                 <div class="pet__main">
+//                   <div class="pet__main--filter">
+//                     <ul class="filter__list">
+//                       <li class="filter__item">
+//                         <ul class="filter__service">
+//                         </ul>
+//                       </li>
+//                       <li class="filter__item">
+//                         <ul class="filter__breed filter__">
+//                         </ul>
+//                       </li>
+//                       <li class="filter__item">
+//                         <button class="filter__search">Искать</button>
+//                       </li>
+//                     </ul>
+//                   </div>
+//                   <div class="pet__main--service">
+//                     <ul class="service__list">
+//                     </ul>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       `;
+//   }
+// }
+
+// const openDogWindow = ( event ) => {
+//   switch(true) {
+//     case event.target.id === 'price__open--dog':
+//     console.log(event)
+//   }
+// }
+
+// const openHorseWindow = ( event ) => {
+//   switch(true) {
+//     case event.target.id === 'price__open--horse':
+//     console.log(event)
+//   }
+// }
+
+class Pet {
+  title;
+  description;
+  service = [];
+  className;
+  breed = [];
+  searchPet = {};
+  itemService = () => {
+    let newElement = ``;
+    return this.service.forEach( element => {
+      newElement += `
+      <li class="filter__service--item">${element}</li>
+      `;
+    })
+  }
+  
+  dropPetWindow = (titleFirst, titleSecond, serviceList, breedList) => {
+    let newItem = ``
+    let petWindow = `
+    <div class="pet">
+      <div class="pet__background">
+        <div class="pet__block">
+          <div class="pet__content">
+            <div class="pet__title">
+              <h2 class="pet__title--first">${titleFirst}</h2>
+              <p class="pet__title--second">${titleSecond}</p>
+            </div>
+            <div class="pet__main">
+              <div class="pet__main--filter">
+                <ul class="filter__list">
+                  <li class="filter__item">
+                    <ul class="filter__service">
+                    ${}
+                    </ul>
+                  </li>
+                  <li class="filter__item">
+                    <ul class="filter__breed filter__">
+                    </ul>
+                  </li>
+                  <li class="filter__item">
+                    <button class="filter__search">Искать</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="pet__main--service">
+                <ul class="service__list">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    `;
+    backgroundModal.innerHTML = petWindow; 
+  }
+
+}
+
+// newWindow += `
+  // <div class="pet">
+  //   <div class="pet__background">
+  //     <div class="pet__block">
+  //       <div class="pet__content">
+  //         <div class="pet__title"></div>
+  //         <div class="pet__main">
+  //           <div class="pet__main--filter">
+  //             <ul class="filter__list">
+  //               <li class="filter__item">
+  //                 <ul class="filter__service">
+  //                 </ul>
+  //               </li>
+  //               <li class="filter__item">
+  //                 <ul class="filter__breed filter__">
+  //                 </ul>
+  //               </li>
+  //               <li class="filter__item">
+  //                 <button class="filter__search">Искать</button>
+  //               </li>
+  //             </ul>
+  //           </div>
+  //           <div class="pet__main--service">
+  //             <ul class="service__list">
+  //             </ul>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // </div>
+// `;
+
+const openPetWindow = ( event ) => {
+  // newWindow = ``;
+  switch(true) {
+
+    case event.target.id === 'price__open--cat':
+      console.log(event)
+      backgroundModal.style.cssText += `
+        display: block;
+        z-index: 4;
+      `;
+      const catPet = new Pet();
+      catPet.title = 'Кошкам и котам';
+      catPet.description = 'Для ваших любимых пушистиков';
+      catPet.service = ['Линька', 'Стрижка когтей', 'Стрижка шерсти', 'Мытье', 'Экспресс']
+      catPet.breed = ['Мейн-кун', 'Сиамская', 'Британская короткошорстая', 'Сфинкс', 'Шотландская вислоухая']
+      console.log(catPet)
+      catPet.dropPetWindow(catPet.title, catPet.description, catPet.service, catPet.breed)
+      // backgroundModal.innerHTML = catPet.petWindow
+      break
+
+    case event.target.id === 'price__open--dog':
+      console.log(event)
+      break
+
+    case event.target.id === 'price__open--horse':
+      console.log(event)
+      break
+
+  }
+}
+
+const closeSignWindow = ( event ) => {
+  console.log(event)
+  let noneSign = ``;
+  switch(true) {
+    case event.target.className === 'sign__window' || event.target.className === 'sign__window--close' || event.target.classList[1] === 'sign__close':
+      backgroundModal.innerHTML = noneSign;
+      backgroundModal.style.cssText += `
+        display: none;
+      `;
+      break
+  }
+}
+
+const listenerSign = signModal.addEventListener( 'click', openSignWindow )
+const listenerCoverBtn = signCoverModal.addEventListener( 'click', openSignWindow )
+// const listenerCat = priceModalCat.addEventListener( 'click', openCatWindow )
+// const listenerDog = priceModalDog.addEventListener( 'click', openDogWindow )
+// const listenerHorse = priceModalHorse.addEventListener( 'click', openHorseWindow )
+
+const listenerCat = priceModalCat.addEventListener( 'click', openPetWindow )
+const listenerDog = priceModalDog.addEventListener( 'click', openPetWindow )
+const listenerHorse = priceModalHorse.addEventListener( 'click', openPetWindow )
+
+const listenerBackgroundSign = backgroundModal.addEventListener( 'click', closeSignWindow )
