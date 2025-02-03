@@ -43,6 +43,7 @@ h3 {
   background: #ccba9f;
   justify-items: center;
   overflow: hidden;
+  height: 83px !important;
   .header__container {
     width: 80rem;
     display: flex;
@@ -1387,10 +1388,11 @@ svg {
 
   .header {
     position: absolute;
-    height: 4rem;
+    height: 4rem !important;
     display: flex;
     justify-content: center;
     transition: .3s;
+    
   }
 
   .header__container {
@@ -1413,6 +1415,14 @@ svg {
     img {
       width: 2rem;
     }
+  }
+
+  .navigation__list--item > a::before {
+    display: none;
+  }
+
+  .navigation__list--item > a:hover::before {
+    display: none;
   }
 
   .portfolio__content {
@@ -1533,6 +1543,35 @@ svg {
     width: 90%;
   }
 
+  .pet__title {
+    row-gap: 0;
+  }
+
+  .sign__window--close {
+    top: -25px !important;
+    right: -25px !important;
+  }
+
+  .pet__title--first {
+    font-size: 1.7rem;
+  }
+
+  .pet__title--second {
+    font-size: 1.2rem;
+  }
+
+  .pet__block {
+    height: 90vh;
+  }
+
+  .pet__service {
+    height: 28rem;
+    overflow: hidden;
+  }
+
+  .service__list {
+    height: 26rem;
+  }
 
 }
 
@@ -1833,5 +1872,10 @@ svg {
   .footer__number--link {
     font-size: 1rem !important;
   }
+
+  .pet__title--first {
+    line-height: 2rem;
+  }
+
 
 }

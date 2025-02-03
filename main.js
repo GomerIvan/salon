@@ -48,7 +48,7 @@ const openSignWindow = ( event ) => {
                 <h1 class="sign__window--title--first">Запишитесь на процедуры</h1>
                 <h2 class="sign__window--title--second">Заполните форму и запишитесь</h2>
               </div>
-              <form action="" class="sign__window--form">
+              <form class="sign__window--form" method="POST" netlify>
                 <div class="sign__window--form--line">
                   <input type="text" class="sign__window--name" placeholder="Ваше Имя">
                   <input type="tel" class="sign__window--number" placeholder="+7 (000) 000-00-00">
@@ -791,7 +791,7 @@ const openMenu = (event) => {
   if(event.target.className === 'header__arrow' || event.target.className === 'header__arrow--icon') {
     if(headerMain.style.height === '14rem') {
       headerMain.style.cssText += `
-        height: 4rem;
+        height: 5rem !important;
       `;
       headerContent.style.cssText += `
         top: -10rem;
@@ -799,9 +799,11 @@ const openMenu = (event) => {
       arrowMenu.style.cssText += `
         transform: rotate(90deg);
       `;
+
+    // } else if() {
     } else {
       headerMain.style.cssText += `
-        height: 14rem;
+        height: 14rem !important;
       `;
       headerContent.style.cssText += `
         top: 0rem;
