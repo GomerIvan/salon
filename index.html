@@ -310,7 +310,7 @@
             <h2 class="callback__title--second">Сделайте заказ обратного звонка и мы вам перезвоним</h2>
           </div>
           <form class="callback__form" name="sign__callback" method="post" netlify>
-            <input type="tel" placeholder="+7 (000) 000-00-00" class="callback__number">
+            <input type="tel" placeholder="+7 (000) 000-00-00" class="callback__number" name="CallbackNumber">
             <input type="submit" value="Оставить заявку" class="callback__button">
           </form>
           <p class="callback__text--second">
@@ -398,22 +398,22 @@
           </div>
           <form class="sign__form" name="sign__on__service" method="post" netlify>
             <div class="sign__form--line">
-              <input type="text" class="sign__name" placeholder="Ваше Имя">
-              <input type="tel" class="sign__number" placeholder="+7 (000) 000-00-00">
-              <input type="email" class="sign__email" placeholder="E-mail">
+              <input type="text" class="sign__name" placeholder="Ваше Имя" name="UserName">
+              <input type="tel" class="sign__number" placeholder="+7 (000) 000-00-00" name="UserNumber">
+              <input type="email" class="sign__email" placeholder="E-mail" name="UserMail">
             </div>
             <p class="sign__radio">Выберите питомца</p>
             <div class="sign__form--radio">
               <div class="radio__list">
-                <input type="radio" class="radio__cat">
+                <input type="radio" class="radio__cat" name="SignCat">
                 <p class="radio__cat--description radio__description">Для кошки/кота</p>
               </div>
               <div class="radio__list">
-                <input type="radio" class="radio__dog">
+                <input type="radio" class="radio__dog" name="SignDog">
                 <p class="radio__dog--description radio__description">Для собаки</p>
               </div>
             </div>
-            <button class="sign__send"></button>
+            <button class="sign__send" type="submit"></button>
             <p class="send__text">Оставляя заявку, вы соглашаетесь на обработку персональных данных</p>
           </form>
         </div>

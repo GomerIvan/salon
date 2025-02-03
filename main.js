@@ -48,24 +48,24 @@ const openSignWindow = ( event ) => {
                 <h1 class="sign__window--title--first">Запишитесь на процедуры</h1>
                 <h2 class="sign__window--title--second">Заполните форму и запишитесь</h2>
               </div>
-              <form class="sign__window--form" method="POST" netlify>
+              <form name="sign__in__window" class="sign__window--form" method="POST" netlify>
                 <div class="sign__window--form--line">
-                  <input type="text" class="sign__window--name" placeholder="Ваше Имя">
-                  <input type="tel" class="sign__window--number" placeholder="+7 (000) 000-00-00">
-                  <input type="email" class="sign__window--email" placeholder="E-mail">
+                  <input type="text" class="sign__window--name" placeholder="Ваше Имя" name="name">
+                  <input type="tel" class="sign__window--number" placeholder="+7 (000) 000-00-00" name="number">
+                  <input type="email" class="sign__window--email" placeholder="E-mail" name="mail">
                 </div>
                 <p class="sign__window--radio">Выберите питомца</p>
                 <div class="sign__window--form--radio">
                   <div class="radio__window--list">
-                    <input type="radio" class="radio__window--cat">
-                    <p class="radio__window--cat--description radio__window--description">Для кошака</p>
+                    <input type="radio" class="radio__window--cat" name="cat">
+                    <p class="radio__window--cat--description radio__window--description">Для кошки/кота</p>
                   </div>
                   <div class="radio__window--list">
-                    <input type="radio" class="radio__window--dog">
-                    <p class="radio__window--dog--description radio__window--description">Для dog</p>
+                    <input type="radio" class="radio__window--dog" name="dog">
+                    <p class="radio__window--dog--description radio__window--description">Для собаки</p>
                   </div>
                 </div>
-                <button class="sign__send sign__window--send"></button>
+                <button class="sign__send sign__window--send" type="submit"></button>
                 <p class="send__window--text">Оставляя заявку, вы соглашаетесь на обработку персональных данных</p>
               </form>
             </div>
