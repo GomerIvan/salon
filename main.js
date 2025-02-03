@@ -64,10 +64,6 @@ const openSignWindow = ( event ) => {
                     <input type="radio" class="radio__window--dog">
                     <p class="radio__window--dog--description radio__window--description">Для dog</p>
                   </div>
-                  <div class="radio__window--list">
-                    <input type="radio" class="radio__window--horse">
-                    <p class="radio__window--horse--description radio__window--description">Для коня</p>
-                  </div>
                 </div>
                 <button class="sign__send sign__window--send"></button>
                 <p class="send__window--text">Оставляя заявку, вы соглашаетесь на обработку персональных данных</p>
@@ -791,6 +787,7 @@ arrows.addEventListener('click', function(event) {
 
 
 const openMenu = (event) => {
+  console.log(event)
   if(event.target.className === 'header__arrow' || event.target.className === 'header__arrow--icon') {
     if(headerMain.style.height === '14rem') {
       headerMain.style.cssText += `
