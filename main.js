@@ -48,7 +48,7 @@ const openSignWindow = ( event ) => {
                 <h1 class="sign__window--title--first">Запишитесь на процедуры</h1>
                 <h2 class="sign__window--title--second">Заполните форму и запишитесь</h2>
               </div>
-              <form name="sign__in__window" class="sign__window--form" method="POST" data-netlify="true">
+              <form name="sign__in__window" class="sign__window--form" method="POST" data-netlify="true" action="/index">
                 <div class="sign__window--form--line">
                   <input type="text" class="sign__window--name" placeholder="Ваше Имя" name="name">
                   <input type="tel" class="sign__window--number" placeholder="+7 (000) 000-00-00" name="number">
