@@ -1770,7 +1770,6 @@ svg {
 
   .carousel__track {
     display: flex;
-    column-gap: 900px !important;
   }
 
   .carousel__track--item--first, .carousel__track--item--second {
